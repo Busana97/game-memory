@@ -64,23 +64,13 @@ you can change the rotate to make it stable 0 degree */
   color:#12b5ff;
 }
 
-.github-btn {
-    position: fixed;
-    bottom: 20px;
-    padding: 12px 24px;
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 30px;
-    text-decoration: none;
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(5px);
-}
 
-.github-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+@media (max-width: 768px) {
+    .container .box span {
+ 
+    }
+
+    .container .box span i{
+
+      }
 }
