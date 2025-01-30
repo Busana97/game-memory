@@ -3,21 +3,21 @@ const gameBoard = document.querySelector(".game_board");
 
 // Sample images for cards
 const images = [
-  "./src/hinata.jpg",
-  "./src/ino.jpg",
- "./src/jiraya.jpg",
-  "./src/kakashi.jpg",
-  "./src/konan.jpg",
-  "./src/madara.jpg",
- "./src/minato.jpg",
-  "./src/naruto.jpg",
-  "./src/neydji.jpg",
-  "./src/orochimaru.jpg",
- "./src/pain.jpg",
-  "./src/sakura.jpg",
-  "./src/saske.jpg",
-  "./src/sasori.jpg",
- "./src/tsunade.jpg",
+  "./src/img_1.jpg",
+  "./src/img_2.jpg",
+ "./src/img_3.jpg",
+  "./src/img_4.jpg",
+  "./src/img_5.jpg",
+  "./src/img_6.jpg",
+ "./src/img_7.jpg",
+  "./src/img_8.jpg",
+  "./src/img_9.jpg",
+  "./src/img_10.jpg",
+ "./src/img_11.jpg",
+  "./src/img_12.jpg",
+  "./src/img_13.jpg",
+  "./src/img_14.jpg",
+ "./src/img_15.jpg",
 ];
 
 // Double the images and shuffle
@@ -62,33 +62,35 @@ gameBoard.addEventListener("click", function (event) {
     const firstImage = firstCard.querySelector(".back").style.backgroundImage;
     const secondImage = secondCard.querySelector(".back").style.backgroundImage;
 
-    if (firstImage === secondImage) {
-      // Match found
-      firstCard.classList.add("matched");
-      secondCard.classList.add("matched");
+if (firstImage === secondImage) {
+  firstCard.classList.add("matched");
+  secondCard.classList.add("matched");
+  console.log(firstCard, secondCard)
 
-      anime({
-        targets: [firstCard, secondCard],
-        scale: [1, 0],
-        duration: 1000,
-        easing: "easeInOutQuad",
-        complete: () => {
-          firstCard.style.visibility = "hidden";
-          secondCard.style.visibility = "hidden";
-          matchedCount += 2;
+  anime({
+    targets: [firstCard, secondCard],
+    scale: [1, 0],
+    duration: 1000,
+    easing: "easeInOutQuad",
+    complete: () => {
+      firstCard.querySelector(".back").style.backgroundImage = "none";
+      secondCard.querySelector(".back").style.backgroundImage = "none";
+      matchedCount += 2;
 
-          if (matchedCount === cardImages.length) {
-            alert("You won!");
-            window.location.reload()
-          }
-        },
-      });
-    } else {
+      if (matchedCount === cardImages.length) {
+        setTimeout(() => {
+          alert("You won!");
+          window.location.reload();
+        }, 500);
+      }
+    },
+  });
+} else {
       // No match
       setTimeout(() => {
         firstCard.classList.remove("flipped");
         secondCard.classList.remove("flipped");
-      }, 1000);
+      }, 500);
     }
 
     flippedCards = [];
@@ -100,7 +102,7 @@ startBtn.addEventListener("click", function () {
   startBtn.style.display = "none";
 
   if (window.innerWidth <= 768) {
-      document.querySelector("body").style.backgroundImage = "url(/src/img.jpg)";
+      document.querySelector("body").style.backgroundImage = "url(/src/back.jpg)";
       document.querySelector("body").style.backgroundSize = 'cover' 
   }
 
